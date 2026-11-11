@@ -9,88 +9,81 @@ export function ExperienceSection() {
   return (
     <section id="experience" className="py-20 border-t border-rose-100/70 dark:border-rose-950/40">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-14">
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
-            Experience & Education
-          </h2>
-          <p className="mt-2 text-slate-600 dark:text-slate-400 text-sm">
-            Engineering leadership, cloud architecture, and product delivery across high-throughput environments.
-          </p>
+        <div className="flex items-center gap-2 text-xs font-mono text-slate-500 dark:text-slate-400 mb-2">
+          <span className="text-rose-500 font-semibold">[02]</span>
+          <span>CHRONOLOGY & IMPACT</span>
         </div>
+        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white mb-10">
+          Work Experience
+        </h2>
 
-        {/* Timeline */}
-        <div className="relative border-l border-rose-200/90 dark:border-rose-900/50 ml-3 md:ml-28 space-y-12">
+        {/* Dense, High-Signal Ledger (Akash Soti + Adam Perlis resume layout) */}
+        <div className="space-y-8">
           {experience.map((item: Experience) => (
-            <div key={item.id} className="relative pl-6 md:pl-8">
-              {/* Timeline marker */}
-              <div className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-rose-400 ring-4 ring-white dark:ring-slate-950" />
-
-              {/* Date stamp desktop offset */}
-              <div className="hidden md:block absolute -left-32 top-1 text-xs font-mono text-slate-500 dark:text-slate-400 text-right w-24">
-                {item.period}
-              </div>
-
-              <div className="p-6 rounded-2xl bg-white dark:bg-slate-900/70 border border-slate-200/90 dark:border-slate-800/80 shadow-xs">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
+            <div
+              key={item.id}
+              className="p-6 sm:p-7 rounded-2xl bg-white dark:bg-slate-900/60 border border-slate-200/90 dark:border-slate-800/80 shadow-xs"
+            >
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+                <div>
                   <h3 className="text-base font-bold text-slate-900 dark:text-white">
                     {item.role}
                   </h3>
-                  <span className="text-sm font-medium text-rose-600 dark:text-rose-400">
-                    {item.company}
+                  <p className="text-sm font-semibold text-rose-600 dark:text-rose-400">
+                    {item.company} <span className="font-normal text-slate-400">/ {item.location}</span>
+                  </p>
+                </div>
+
+                <span className="font-mono text-xs text-slate-500 dark:text-slate-400">
+                  {item.period}
+                </span>
+              </div>
+
+              <ul className="mt-4 space-y-2">
+                {item.description.map((point, idx) => (
+                  <li
+                    key={idx}
+                    className="text-sm text-slate-600 dark:text-slate-300 flex items-start gap-2.5 leading-relaxed"
+                  >
+                    <span className="text-rose-400 font-mono text-xs mt-0.5">→</span>
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-5 pt-3 border-t border-slate-100 dark:border-slate-800/60 flex flex-wrap gap-1.5 font-mono text-[11px]">
+                {item.skills.map((s) => (
+                  <span
+                    key={s}
+                    className="px-2 py-0.5 rounded bg-rose-50/70 dark:bg-rose-950/30 text-rose-800 dark:text-rose-300 border border-rose-200/50 dark:border-rose-900/40"
+                  >
+                    {s}
                   </span>
-                </div>
-
-                <div className="text-xs text-slate-500 dark:text-slate-400 mb-3 md:hidden">
-                  {item.period} • {item.location}
-                </div>
-
-                <ul className="space-y-2 mt-3">
-                  {item.description.map((point, index) => (
-                    <li
-                      key={index}
-                      className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed"
-                    >
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mt-4 pt-3 flex flex-wrap gap-1.5 border-t border-slate-100 dark:border-slate-800/60">
-                  {item.skills.map((s) => (
-                    <span
-                      key={s}
-                      className="text-[11px] font-mono px-2 py-0.5 rounded bg-rose-50/70 dark:bg-rose-950/30 text-rose-800 dark:text-rose-300 border border-rose-200/50 dark:border-rose-900/40"
-                    >
-                      {s}
-                    </span>
-                  ))}
-                </div>
+                ))}
               </div>
             </div>
           ))}
 
-          {/* Education */}
+          {/* Education Row */}
           {education.map((edu) => (
-            <div key={edu.id} className="relative pl-6 md:pl-8">
-              <div className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-slate-400 dark:bg-slate-600 ring-4 ring-white dark:ring-slate-950" />
-
-              <div className="hidden md:block absolute -left-32 top-1 text-xs font-mono text-slate-500 dark:text-slate-400 text-right w-24">
-                {edu.period}
-              </div>
-
-              <div className="p-6 rounded-2xl bg-white dark:bg-slate-900/70 border border-slate-200/90 dark:border-slate-800/80 shadow-xs">
-                <h3 className="text-base font-bold text-slate-900 dark:text-white">
+            <div
+              key={edu.id}
+              className="p-6 rounded-2xl bg-white dark:bg-slate-900/60 border border-slate-200/90 dark:border-slate-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-sm"
+            >
+              <div>
+                <span className="font-bold text-slate-900 dark:text-white">
                   {edu.degree}
-                </h3>
-                <p className="text-sm font-medium text-rose-600 dark:text-rose-400 mt-0.5">
-                  {edu.institution}
-                </p>
+                </span>
+                <span className="text-slate-400"> — {edu.institution}</span>
                 {edu.details && (
-                  <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
                     {edu.details}
                   </p>
                 )}
               </div>
+              <span className="font-mono text-xs text-slate-500 dark:text-slate-400 shrink-0">
+                {edu.period}
+              </span>
             </div>
           ))}
         </div>
