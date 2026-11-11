@@ -12,14 +12,14 @@ export function Footer() {
   }, []);
 
   return (
-    <footer className="py-10 border-t border-pink-100/60 dark:border-pink-950/40 text-center text-xs text-slate-500 dark:text-slate-400">
-      <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div className="flex items-center gap-1.5">
-          <span>🌸</span>
+    <footer className="py-12 border-t border-rose-100/70 dark:border-rose-950/40 text-xs text-slate-500 dark:text-slate-400">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-rose-400" />
           <span className="font-semibold text-slate-800 dark:text-slate-200">
             {personal.name}
           </span>
-          <span>• Designed with cherry blossom aesthetics</span>
+          <span>• Minimalist engineering portfolio</span>
         </div>
 
         <div>
