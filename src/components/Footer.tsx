@@ -22,7 +22,7 @@ export function Footer() {
         </div>
 
         <div>
-          © {year} Alex Rivera. All rights reserved.
+          © {year} Austin Mirando. All rights reserved.
         </div>
       </div>
     </footer>
