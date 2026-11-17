@@ -33,15 +33,11 @@ export function HeroSection() {
       {/* Main Identity & Statement */}
       <div className="space-y-6">
         <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.12]">
-          {personal.name} — Cybersecurity Student & Software Builder.
+          {personal.name} — Cybersecurity Student & Eagle Scout.
         </h1>
 
-        <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
-          {personal.bio}
-        </p>
-
         <p className="text-sm sm:text-base text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed">
-          Eagle Scout, Vigil Honor member, and former Section Vice Chief of Training in Scouting America&apos;s Order of the Arrow. Building high-utility web tools, real-time software, and defensive security workflows.
+          {personal.bio}
         </p>
       </div>
 
