@@ -2,11 +2,8 @@
 
 import React, { createContext, useContext, useEffect, useState } from "react";
 
-type Theme = "light" | "dark";
-
 interface ThemeContextType {
-  theme: Theme;
-  toggleTheme: () => void;
+  theme: "dark";
   petalsEnabled: boolean;
   togglePetals: () => void;
 }
@@ -14,43 +11,20 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("light");
   const [petalsEnabled, setPetalsEnabled] = useState<boolean>(true);
   const [mounted, setMounted] = useState<boolean>(false);
 
   useEffect(() => {
-    // Check saved theme or system preference
-    const savedTheme = localStorage.getItem("portfolio-theme") as Theme | null;
+    // Ensure dark class is always applied to document root
+    document.documentElement.classList.add("dark");
+
     const savedPetals = localStorage.getItem("portfolio-petals");
-
-    if (savedTheme) {
-      setTheme(savedTheme);
-      document.documentElement.classList.toggle("dark", savedTheme === "dark");
-    } else {
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      if (prefersDark) {
-        setTheme("dark");
-        document.documentElement.classList.add("dark");
-      }
-    }
-
     if (savedPetals !== null) {
       setPetalsEnabled(savedPetals === "true");
     }
 
     setMounted(true);
   }, []);
-
-  const toggleTheme = () => {
-    const nextTheme = theme === "light" ? "dark" : "light";
-    setTheme(nextTheme);
-    localStorage.setItem("portfolio-theme", nextTheme);
-    if (nextTheme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  };
 
   const togglePetals = () => {
     const nextPetals = !petalsEnabled;
@@ -61,8 +35,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   return (
     <ThemeContext.Provider
       value={{
-        theme,
-        toggleTheme,
+        theme: "dark",
         petalsEnabled,
         togglePetals,
       }}

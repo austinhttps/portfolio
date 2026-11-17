@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useTheme } from "@/context/ThemeContext";
-import { Sun, Moon, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
 
 const navItems = [
@@ -16,7 +16,7 @@ const navItems = [
 ];
 
 export function Navbar() {
-  const { theme, toggleTheme, petalsEnabled, togglePetals } = useTheme();
+  const { petalsEnabled, togglePetals } = useTheme();
   const [activeSection, setActiveSection] = useState("about");
   const [time, setTime] = useState("");
 
@@ -59,7 +59,7 @@ export function Navbar() {
       {/* Floating Center Dock */}
       <nav
         aria-label="Primary"
-        className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-1 p-1.5 rounded-full bg-slate-900/90 dark:bg-slate-900/90 backdrop-blur-xl border border-slate-700/60 dark:border-rose-950/60 shadow-2xl text-white max-w-[95vw] overflow-x-auto no-scrollbar"
+        className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-1.5 p-1.5 rounded-full bg-slate-900/90 backdrop-blur-xl border border-slate-700/60 shadow-2xl text-white max-w-[95vw] overflow-x-auto no-scrollbar"
       >
         <div className="flex items-center gap-0.5 px-1">
           {navItems.map((item) => {
@@ -83,42 +83,29 @@ export function Navbar() {
         <div className="h-4 w-px bg-slate-700/80 mx-1 shrink-0" />
 
         <div className="flex items-center gap-1 shrink-0 pr-1">
-          {/* Petals toggle */}
+          {/* Petals toggle button */}
           <button
             onClick={togglePetals}
             title={petalsEnabled ? "Disable blossom petals" : "Enable blossom petals"}
-            className={`p-1.5 rounded-full text-xs transition-colors cursor-pointer ${
+            className={`px-2.5 py-1.5 rounded-full text-xs font-medium flex items-center gap-1.5 transition-colors cursor-pointer ${
               petalsEnabled
-                ? "text-rose-300 bg-rose-500/20"
-                : "text-slate-400 hover:text-white"
+                ? "text-rose-300 bg-rose-500/20 hover:bg-rose-500/30"
+                : "text-slate-400 hover:text-white hover:bg-white/10"
             }`}
             aria-label="Toggle cherry blossom particles"
           >
             <Sparkles className="w-3.5 h-3.5" />
-          </button>
-
-          {/* Theme toggle */}
-          <button
-            onClick={toggleTheme}
-            title="Toggle color theme"
-            className="p-1.5 rounded-full text-slate-300 hover:text-white transition-colors cursor-pointer"
-            aria-label="Toggle theme mode"
-          >
-            {theme === "dark" ? (
-              <Sun className="w-3.5 h-3.5 text-amber-300" />
-            ) : (
-              <Moon className="w-3.5 h-3.5" />
-            )}
+            <span className="hidden sm:inline text-[11px]">Petals</span>
           </button>
         </div>
       </nav>
 
       {/* Top Subtle Status Bar */}
-      <header className="fixed top-0 left-0 right-0 z-40 bg-white/70 dark:bg-slate-950/70 backdrop-blur-md border-b border-rose-100/60 dark:border-rose-950/40">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-12 flex items-center justify-between text-xs text-slate-600 dark:text-slate-400">
+      <header className="fixed top-0 left-0 right-0 z-40 bg-slate-950/70 backdrop-blur-md border-b border-rose-950/40">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-12 flex items-center justify-between text-xs text-slate-400">
           <a
             href="#"
-            className="flex items-center gap-2 font-mono font-medium text-slate-900 dark:text-slate-100 hover:text-rose-600 dark:hover:text-rose-400 transition-colors"
+            className="flex items-center gap-2 font-mono font-medium text-slate-100 hover:text-rose-400 transition-colors"
           >
             <span className="w-2 h-2 rounded-full bg-rose-400 animate-pulse" />
             <span>github.com/{portfolioData.personal.handle}</span>
@@ -131,8 +118,8 @@ export function Navbar() {
             </span>
             {time && (
               <>
-                <span className="text-slate-300 dark:text-slate-700">•</span>
-                <span className="text-slate-500 dark:text-slate-400">{time}</span>
+                <span className="text-slate-700">•</span>
+                <span className="text-slate-400">{time}</span>
               </>
             )}
           </div>

@@ -18,7 +18,7 @@ interface Petal {
 }
 
 export function SakuraPetals() {
-  const { petalsEnabled, theme } = useTheme();
+  const { petalsEnabled } = useTheme();
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
@@ -41,7 +41,6 @@ export function SakuraPetals() {
 
     window.addEventListener("resize", handleResize);
 
-    // Number of subtle petals
     const petalCount = Math.min(Math.floor(width / 45), 35);
     const petals: Petal[] = [];
 
@@ -49,7 +48,7 @@ export function SakuraPetals() {
       petals.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        size: Math.random() * 8 + 7, // 7px - 15px
+        size: Math.random() * 8 + 7,
         speedX: Math.random() * 0.8 + 0.3,
         speedY: Math.random() * 1.2 + 0.6,
         rotation: Math.random() * 360,
@@ -67,24 +66,15 @@ export function SakuraPetals() {
       frame++;
       ctx.clearRect(0, 0, width, height);
 
-      // Color palette depending on light or dark mode
-      // Light mode: soft delicate sakura pink
-      // Dark mode: slightly glowing neon sakura tint
-      const petalFill =
-        theme === "dark"
-          ? "rgba(255, 183, 197, 0.45)"
-          : "rgba(247, 187, 199, 0.55)";
-      const petalBorder =
-        theme === "dark"
-          ? "rgba(255, 140, 170, 0.35)"
-          : "rgba(240, 160, 180, 0.3)";
+      // Dark mode glowing cherry blossom palette
+      const petalFill = "rgba(255, 183, 197, 0.45)";
+      const petalBorder = "rgba(255, 140, 170, 0.35)";
 
       petals.forEach((p) => {
         p.y += p.speedY;
         p.x += p.speedX + Math.sin(frame * p.swaySpeed + p.swayOffset) * p.swayAmplitude;
         p.rotation += p.rotationSpeed;
 
-        // Wrap around seamlessly
         if (p.y > height + 20) {
           p.y = -20;
           p.x = Math.random() * width;
@@ -97,7 +87,6 @@ export function SakuraPetals() {
         ctx.translate(p.x, p.y);
         ctx.rotate((p.rotation * Math.PI) / 180);
 
-        // Draw delicate sakura petal curve
         ctx.beginPath();
         ctx.moveTo(0, 0);
         ctx.bezierCurveTo(
@@ -136,7 +125,7 @@ export function SakuraPetals() {
       window.removeEventListener("resize", handleResize);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [petalsEnabled, theme]);
+  }, [petalsEnabled]);
 
   if (!petalsEnabled) return null;
 

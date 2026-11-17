@@ -33,10 +33,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} dark antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-screen flex flex-col relative selection:bg-pink-200 selection:text-pink-900 dark:selection:bg-pink-900 dark:selection:text-pink-100">
+      <body className="min-h-screen flex flex-col relative bg-[#0b0e17] text-[#f4f5f7] selection:bg-pink-900 selection:text-pink-100">
         <ThemeProvider>
           <SakuraPetals />
           <Navbar />
