@@ -2,16 +2,17 @@
 
 import React, { useState, useEffect } from "react";
 import { useTheme } from "@/context/ThemeContext";
-import { Sun, Moon, Sparkles, Terminal } from "lucide-react";
+import { Sun, Moon, Sparkles } from "lucide-react";
+import { portfolioData } from "@/data/portfolio";
 
 const navItems = [
   { label: "Overview", href: "#about" },
-  { label: "Work", href: "#projects" },
+  { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
   { label: "Credentials", href: "#certifications" },
   { label: "Writing", href: "#writing" },
-  { label: "Uses", href: "#stack" },
-  { label: "Connect", href: "#contact" },
+  { label: "Skills", href: "#stack" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export function Navbar() {
@@ -20,13 +21,13 @@ export function Navbar() {
   const [time, setTime] = useState("");
 
   useEffect(() => {
-    // Live local time indicator (common on high-end design portfolios like Akash Soti / JarnKet)
     const updateTime = () => {
       const now = new Date();
       setTime(
         now.toLocaleTimeString("en-US", {
           hour: "2-digit",
           minute: "2-digit",
+          timeZone: "America/New_York",
           timeZoneName: "short",
         })
       );
@@ -55,7 +56,7 @@ export function Navbar() {
 
   return (
     <>
-      {/* Floating Center Dock (Akash Soti + Adam Perlis aesthetic) */}
+      {/* Floating Center Dock */}
       <nav
         aria-label="Primary"
         className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-1 p-1.5 rounded-full bg-slate-900/90 dark:bg-slate-900/90 backdrop-blur-xl border border-slate-700/60 dark:border-rose-950/60 shadow-2xl text-white max-w-[95vw] overflow-x-auto no-scrollbar"
@@ -120,18 +121,18 @@ export function Navbar() {
             className="flex items-center gap-2 font-mono font-medium text-slate-900 dark:text-slate-100 hover:text-rose-600 dark:hover:text-rose-400 transition-colors"
           >
             <span className="w-2 h-2 rounded-full bg-rose-400 animate-pulse" />
-            <span>alexrivera.dev</span>
+            <span>github.com/{portfolioData.personal.handle}</span>
           </a>
 
           <div className="hidden sm:flex items-center gap-4 font-mono text-[11px]">
             <span className="flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-              <span>Available for engineering roles</span>
+              <span>Cybersecurity @ Wake Tech</span>
             </span>
             {time && (
               <>
                 <span className="text-slate-300 dark:text-slate-700">•</span>
-                <span className="text-slate-500 dark:text-slate-400">Seattle {time}</span>
+                <span className="text-slate-500 dark:text-slate-400">{time}</span>
               </>
             )}
           </div>

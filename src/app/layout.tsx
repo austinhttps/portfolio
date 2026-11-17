@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/context/ThemeContext";
 import { SakuraPetals } from "@/components/SakuraPetals";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { portfolioData } from "@/data/portfolio";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,8 +18,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Alex Rivera | Software Engineer & Cloud Architect",
-  description: "Personal engineering portfolio showcasing distributed systems, cloud architecture, projects, certifications, and technical writing.",
+  title: `${portfolioData.personal.name} (@${portfolioData.personal.handle}) — ${portfolioData.personal.headline}`,
+  description: `${portfolioData.personal.name}'s portfolio: ${portfolioData.personal.headline} based in ${portfolioData.personal.location}. Discover AeroLookup, MiteAI, ScribblBoard, cybersecurity projects, and certifications.`,
   icons: {
     icon: "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>",
   },
