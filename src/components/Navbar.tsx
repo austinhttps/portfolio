@@ -67,11 +67,10 @@ export function Navbar() {
               <a
                 key={item.label}
                 href={item.href}
-                className={`relative px-3 py-1.5 text-xs font-medium rounded-full transition-all duration-200 whitespace-nowrap cursor-pointer ${
-                  isActive
+                className={`relative px-3 py-1.5 text-xs font-medium rounded-full transition-all duration-200 whitespace-nowrap cursor-pointer ${isActive
                     ? "text-slate-900 bg-white font-semibold shadow-xs"
                     : "text-slate-300 hover:text-white hover:bg-white/10"
-                }`}
+                  }`}
               >
                 {item.label}
               </a>
@@ -86,11 +85,10 @@ export function Navbar() {
           <button
             onClick={togglePetals}
             title={petalsEnabled ? "Disable blossom petals" : "Enable blossom petals"}
-            className={`px-2.5 py-1.5 rounded-full text-xs font-medium flex items-center gap-1.5 transition-colors cursor-pointer ${
-              petalsEnabled
+            className={`px-2.5 py-1.5 rounded-full text-xs font-medium flex items-center gap-1.5 transition-colors cursor-pointer ${petalsEnabled
                 ? "text-rose-300 bg-rose-500/20 hover:bg-rose-500/30"
                 : "text-slate-400 hover:text-white hover:bg-white/10"
-            }`}
+              }`}
             aria-label="Toggle cherry blossom particles"
           >
             <Sparkles className="w-3.5 h-3.5" />
@@ -103,7 +101,7 @@ export function Navbar() {
       <header className="fixed top-0 left-0 right-0 z-40 bg-slate-950/70 backdrop-blur-md border-b border-rose-950/40">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-12 flex items-center justify-between text-xs text-slate-400">
           <a
-            href="#"
+            href="https://github.com/austinhttps"
             className="flex items-center gap-2 font-mono font-medium text-slate-100 hover:text-rose-400 transition-colors"
           >
             <span className="w-2 h-2 rounded-full bg-rose-400 animate-pulse" />

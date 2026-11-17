@@ -19,7 +19,7 @@ export function ContactSection() {
     const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
 
     if (!accessKey) {
-      setErrorMessage("Contact form is missing NEXT_PUBLIC_WEB3FORMS_KEY in .env.local.");
+      setErrorMessage("Contact form is missing correct environmental variable");
       return;
     }
 

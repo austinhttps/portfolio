@@ -18,7 +18,7 @@ export function Footer() {
           <span className="w-1.5 h-1.5 rounded-full bg-rose-400" />
           <span>{personal.name}</span>
           <span className="text-slate-300 dark:text-slate-700">/</span>
-          <span>Crafted with Next.js & Sakura accents</span>
+          <span>Romans 12:10</span>
         </div>
 
         <div>
