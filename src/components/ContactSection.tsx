@@ -2,18 +2,60 @@
 
 import React, { useState } from "react";
 import { portfolioData } from "@/data/portfolio";
-import { ArrowUpRight, Send, Check } from "lucide-react";
+import { ArrowUpRight, Send, Check, Loader2 } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/SocialIcons";
 
 export function ContactSection() {
   const { personal } = portfolioData;
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
-    setSubmitted(true);
+
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
+
+    if (!accessKey) {
+      setErrorMessage("Contact form is missing NEXT_PUBLIC_WEB3FORMS_KEY in .env.local.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: `Portfolio Message from ${formData.name}`,
+          from_name: "Portfolio Contact Form",
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setSubmitted(true);
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setErrorMessage(data.message || "Failed to deliver message. Please try again or email directly.");
+      }
+    } catch {
+      setErrorMessage("Network error occurred. Please try again or reach out via email directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -110,12 +152,27 @@ export function ContactSection() {
                     className="w-full px-3.5 py-2 text-xs rounded-xl border border-slate-200 dark:border-slate-800 bg-transparent text-slate-900 dark:text-white focus:outline-none focus:border-rose-500 transition-colors resize-none"
                   />
                 </div>
+                {errorMessage && (
+                  <p className="text-xs text-rose-500 font-mono">
+                    {errorMessage}
+                  </p>
+                )}
                 <button
                   type="submit"
-                  className="w-full py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-rose-500 dark:hover:bg-rose-600 text-white font-mono text-xs font-medium transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+                  disabled={isSubmitting}
+                  className="w-full py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 disabled:opacity-60 dark:bg-rose-500 dark:hover:bg-rose-600 text-white font-mono text-xs font-medium transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
                 >
-                  <span>Send Message</span>
-                  <Send className="w-3 h-3" />
+                  {isSubmitting ? (
+                    <>
+                      <span>Sending...</span>
+                      <Loader2 className="w-3 h-3 animate-spin" />
+                    </>
+                  ) : (
+                    <>
+                      <span>Send Message</span>
+                      <Send className="w-3 h-3" />
+                    </>
+                  )}
                 </button>
               </form>
             )}
