@@ -36,7 +36,7 @@ export function HeroSection() {
           {personal.name} — {personal.headline}
         </h1>
 
-        <p className="text-sm sm:text-base text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed">
+        <p className="text-sm sm:text-base text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed whitespace-pre-line">
           {personal.bio}
         </p>
       </div>
