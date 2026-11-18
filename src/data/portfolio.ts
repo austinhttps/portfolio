@@ -86,10 +86,13 @@ export const portfolioData: PortfolioData = {
     handle: "austinhttps",
     headline: "Cybersecurity Student & Eagle Scout",
     location: "Raleigh, NC",
-    bio: "My background is in project management, public relations, and stakeholder communications within a national youth development organization."
-    "I’ve led large-scale projects, coordinated outreach campaigns, and worked across teams to improve operations and meet shared goals. Those experiences have shaped my approach to leadership: support the people around me, communicate clearly, and follow through."
-    "I’m currently pursuing an Associate in Arts (AA) at Wake Technical Community College and plan to continue toward a bachelor’s degree in cybersecurity at the University of North Carolina Wilmington (UNCW). My goal is to bring my leadership and risk management experience into information security, with a focus on security awareness, compliance, and protecting organizational systems and data."
-    "I bring experience in public speaking, technical communication, and operational planning. I’m also building hands-on skills in networking, systems security, and security compliance as I prepare for a career in cybersecurity.",
+    bio: `My background is in project management, public relations, and stakeholder communications within a national youth development organization.
+
+        I’ve led large-scale projects, coordinated outreach campaigns, and worked across teams to improve operations and meet shared goals. Those experiences have shaped my approach to leadership: support the people around me, communicate clearly, and follow through.
+
+        I’m currently pursuing an Associate in Arts (AA) at Wake Technical Community College and plan to continue toward a bachelor’s degree in cybersecurity at the University of North Carolina Wilmington (UNCW). My goal is to bring my leadership and risk management experience into information security, with a focus on security awareness, compliance, and protecting organizational systems and data.
+
+        I bring experience in public speaking, technical communication, and operational planning. I’m also building hands-on skills in networking, systems security, and security compliance as I prepare for a career in cybersecurity.`,
     resumeUrl: "https://linkedin.com/in/austinmirando/",
     contactEmail: "austinjmirando@gmail.com",
     socials: {
@@ -224,7 +227,7 @@ export const portfolioData: PortfolioData = {
       id: "exp-1",
       role: "Section Vice Chief of Training",
       company: "Order of the Arrow — Section E8",
-      location: "North Carolina",
+      location: "Hybrid, NC",
       period: "2025 — Present",
       description: [
         "Direct and manage sectional training initiatives and leadership development across multiple lodges in North Carolina.",
@@ -237,7 +240,7 @@ export const portfolioData: PortfolioData = {
       id: "exp-2",
       role: "National Subcommittee Member",
       company: "Order of the Arrow, Scouting America",
-      location: "Remote / National Conferences",
+      location: "US",
       period: "2024 — Present",
       description: [
         "Provide year-round support for brand strategy for all of the Order of the Arrow's subbrands, releasing to 90,000+ members.",
