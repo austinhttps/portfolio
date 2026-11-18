@@ -86,7 +86,10 @@ export const portfolioData: PortfolioData = {
     handle: "austinhttps",
     headline: "Cybersecurity Student & Eagle Scout",
     location: "Raleigh, NC",
-    bio: "My background is in project management, public relations, and stakeholder communications within a national youth development organization. \nI’ve led large-scale projects, coordinated outreach campaigns, and worked across teams to improve operations and meet shared goals. Those experiences have shaped my approach to leadership: support the people around me, communicate clearly, and follow through. \nI’m currently pursuing an Associate in Arts (AA) at Wake Technical Community College and plan to continue toward a bachelor’s degree in cybersecurity at the University of North Carolina Wilmington (UNCW). My goal is to bring my leadership and risk management experience into information security, with a focus on security awareness, compliance, and protecting organizational systems and data. \nI bring experience in public speaking, technical communication, and operational planning. I’m also building hands-on skills in networking, systems security, and security compliance as I prepare for a career in cybersecurity.",
+    bio: "My background is in project management, public relations, and stakeholder communications within a national youth development organization."
+    "I’ve led large-scale projects, coordinated outreach campaigns, and worked across teams to improve operations and meet shared goals. Those experiences have shaped my approach to leadership: support the people around me, communicate clearly, and follow through."
+    "I’m currently pursuing an Associate in Arts (AA) at Wake Technical Community College and plan to continue toward a bachelor’s degree in cybersecurity at the University of North Carolina Wilmington (UNCW). My goal is to bring my leadership and risk management experience into information security, with a focus on security awareness, compliance, and protecting organizational systems and data."
+    "I bring experience in public speaking, technical communication, and operational planning. I’m also building hands-on skills in networking, systems security, and security compliance as I prepare for a career in cybersecurity.",
     resumeUrl: "https://linkedin.com/in/austinmirando/",
     contactEmail: "austinjmirando@gmail.com",
     socials: {
@@ -170,15 +173,17 @@ export const portfolioData: PortfolioData = {
       featured: true,
       demoUrl: "https://kitchen-rush-one.vercel.app",
       githubUrl: "https://github.com/austinhttps/kitchenrush",
+      metrics: "3D Canvas",
     },
     {
       id: "project-4",
       title: "PixelMirror — Win11<>Andriod Mirroring System",
-      description: "A WinUI and APK application designed to connect Pixel phones to Windows computers",
+      description: "A WinUI and APK application designed to connect Pixel phones to Windows computers.",
       tags: ["C++", "Kotlin", "Dart", "Python", "Windows", "CMake", "C", "Andriod"],
       featured: true,
       demoUrl: "https://github.com/austinhttps/pixelmirror",
       githubUrl: "https://github.com/austinhttps/pixelmirror",
+      metrics: "Cross-Platform",
     },
     {
       id: "project-5",
@@ -188,6 +193,7 @@ export const portfolioData: PortfolioData = {
       featured: true,
       demoUrl: "https://atmosphere.vercel.app",
       githubUrl: "https://github.com/austinhttps/atmosphere",
+      metrics: "Open-Meteo API",
     },
   ],
   certifications: [
@@ -197,7 +203,6 @@ export const portfolioData: PortfolioData = {
       issuer: "Scouting America (BSA)",
       issueDate: "Earned",
       credentialUrl: "https://www.credly.com/badges/843da9f2-9957-4c54-9010-62336c5a0cb7",
-      badgeIcon: "security",
     },
     {
       id: "cert-2",
@@ -205,7 +210,6 @@ export const portfolioData: PortfolioData = {
       issuer: "Order of the Arrow, Scouting America",
       issueDate: "Awarded",
       credentialUrl: "https://oa-scouting.org/about/membership",
-      badgeIcon: "code",
     },
     {
       id: "cert-4",
@@ -213,7 +217,6 @@ export const portfolioData: PortfolioData = {
       issuer: "Order of the Arrow, Scouting America",
       issueDate: "Completed",
       credentialUrl: "https://oa-scouting.org/training/national-leadership-seminar",
-      badgeIcon: "cloud",
     },
   ],
   experience: [
