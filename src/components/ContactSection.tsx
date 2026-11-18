@@ -66,10 +66,10 @@ export function ContactSection() {
           <span>GET IN TOUCH</span>
         </div>
         <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white mb-4">
-          Let&apos;s build something exceptional.
+          Let&apos;s connect.
         </h2>
         <p className="text-base text-slate-600 dark:text-slate-400 max-w-xl mb-12">
-          Whether you need a senior distributed systems engineer, advice on high-throughput backend architecture, or want to discuss a new product:
+          Whether you want to chat, discuss a future project, or build something together:
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -80,7 +80,6 @@ export function ContactSection() {
               <div className="space-y-1.5 text-slate-600 dark:text-slate-300">
                 <div>Email: {personal.contactEmail}</div>
                 <div>Location: {personal.location}</div>
-                <div>Status: Open to high-impact challenges</div>
               </div>
             </div>
 
@@ -116,7 +115,7 @@ export function ContactSection() {
                   ✓
                 </div>
                 <h3 className="font-bold text-slate-900 dark:text-white text-base">
-                  Message Dispatched
+                  Message Sent
                 </h3>
                 <p className="text-xs text-slate-500">I&apos;ll get back to you shortly.</p>
               </div>
@@ -148,7 +147,7 @@ export function ContactSection() {
                     required
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Your message or project scope..."
+                    placeholder="Your message..."
                     className="w-full px-3.5 py-2 text-xs rounded-xl border border-slate-200 dark:border-slate-800 bg-transparent text-slate-900 dark:text-white focus:outline-none focus:border-rose-500 transition-colors resize-none"
                   />
                 </div>
