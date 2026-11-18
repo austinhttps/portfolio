@@ -33,7 +33,7 @@ export function HeroSection() {
       {/* Main Identity & Statement */}
       <div className="space-y-6">
         <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.12]">
-          {personal.name} — Cybersecurity Student & Eagle Scout.
+          {personal.name} — {personal.headline}
         </h1>
 
         <p className="text-sm sm:text-base text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed">

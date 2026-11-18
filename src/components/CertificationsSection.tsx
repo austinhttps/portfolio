@@ -26,9 +26,6 @@ export function CertificationsSection() {
               className="py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 group"
             >
               <div className="flex items-baseline gap-3">
-                <span className="font-mono text-xs text-rose-500 shrink-0">
-                  {cert.credentialId || "CERT"}
-                </span>
                 <div>
                   <h3 className="font-bold text-slate-900 dark:text-white text-sm sm:text-base group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors">
                     {cert.name}
